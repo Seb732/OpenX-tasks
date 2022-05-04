@@ -7,8 +7,6 @@ public class BinaryTree {
     public BinaryTree(int root){
         this.root = new Node(root);
     }
-
-
     /**
      * Inserts new node at the furthest left of given node
      * @param current

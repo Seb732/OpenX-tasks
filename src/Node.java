@@ -6,4 +6,10 @@ public class Node {
         this.left = this.right = null;
         this.data = data;
     }
+    public void insertLeft(int value){
+        this.left = new Node(value);
+    }
+    public void insertRight(int value){
+        this.right = new Node(value);
+    }
 }
