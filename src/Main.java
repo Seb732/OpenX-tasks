@@ -11,6 +11,14 @@ public class Main {
         rootNode.insertLeft(3);
         rootNode.left.insertLeft(2);
         rootNode.left.insertRight(5);
+
+        // Task 1  -------------------------------------------------------------------------
+        //System.out.println(binaryTree.getCompleteNodes(rootNode));
+        //System.out.println(binaryTree.getNodeNumber(rootNode));
+
+        //-------------------------------------------------------------------------
+
+
         binaryTree.print("", binaryTree.root);
     }
 }
