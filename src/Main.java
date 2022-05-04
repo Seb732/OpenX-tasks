@@ -13,6 +13,7 @@ public class Main {
         rootNode.left.insertRight(5);
 
         // Task 1  -------------------------------------------------------------------------
+        System.out.println(binaryTree.getIncompleteNodes(rootNode));
         //System.out.println(binaryTree.getCompleteNodes(rootNode));
         //System.out.println(binaryTree.getNodeNumber(rootNode));
 
