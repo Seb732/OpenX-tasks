@@ -12,14 +12,13 @@ public class Main {
         rootNode.left.insertLeft(2);
         rootNode.left.insertRight(5);
 
-        // Task 1  -------------------------------------------------------------------------
-        System.out.println(binaryTree.getIncompleteNodes(rootNode));
+        // Task 1 - point 1 ----------------------------------------------------------------
+        //System.out.println(binaryTree.getIncompleteNodes(rootNode));
+        //----------------------------------------------------------------------------------
 
-        //System.out.println(binaryTree.getCompleteNodes(rootNode));
-        //System.out.println(binaryTree.getNodeNumber(rootNode));
-
-        //-------------------------------------------------------------------------
-
+        // Task 1 - point 2 ----------------------------------------------------------------
+        System.out.println(binaryTree.getLongestPath());
+        //----------------------------------------------------------------------------------
 
         binaryTree.print("", binaryTree.root);
     }
