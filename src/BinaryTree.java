@@ -1,6 +1,6 @@
 public class BinaryTree {
     public Node root;
-    protected int completeNodesNum = 0;
+    private int incompleteNodeNumber = 0;
 
     /**
      * Default constructor - sets root as null
@@ -38,20 +38,20 @@ public class BinaryTree {
      */
     public int getIncompleteNodes(Node current){
 
-        // base case - when node has no children
-        if (current.left == null || current.right == null){
-            return 0;
+        // base case - end of leaf
+        if (current == null){
+           return 0;
         }
 
-        // if node has two children add one
-        this.completeNodesNum += 1;
-
-        // recursively traverse current node edges
+        // count for node which doesn't have any children
+        if (current.left == null && current.right == null){
+           this.incompleteNodeNumber++;
+        }
+        // recursively traverse the tree
         getIncompleteNodes(current.left);
         getIncompleteNodes(current.right);
 
-        // return difference between complete nodes and contrary
-        return getNodeNumber(this.root) - this.completeNodesNum;
+        return this.incompleteNodeNumber;
     }
     /**
      * Method which prints recursively tree in horizontal way
