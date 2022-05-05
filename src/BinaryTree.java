@@ -104,6 +104,23 @@ public class BinaryTree {
         // convert element type to string and join with delimiter
         return longestPath.stream().map(Object::toString).collect(Collectors.joining(" -> "));
     }
+    public static boolean compareTrees(Node first, Node second){
+
+        // Check for the leaf node
+        if (first == null && second == null){
+            return true;
+        }
+
+        if (first != null && second != null){
+            // Check if nodes have the same value
+            if (first.data == second.data){
+                // recursively compare children nodes for each node in trees
+                return compareTrees(first.left, second.left) && compareTrees(first.right, second.right);
+            }
+        }
+        return false;
+    }
+
     /**
      * Method which prints recursively tree in horizontal way
      * @param prefix
