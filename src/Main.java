@@ -35,6 +35,6 @@ public class Main {
         //System.out.println(BinaryTree.compareTrees(binaryTree.root, binaryTree2.root));
         //----------------------------------------------------------------------------------
 
-        //binaryTree.print("", binaryTree2.root);
+        binaryTree.print("", binaryTree.root);
     }
 }
