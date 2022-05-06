@@ -77,7 +77,7 @@ class BinaryTreeTest {
 
         Assertions.assertTrue(BinaryTree.compareTrees(binaryTree2.root, binaryTree3.root));
 
-        // case with different node children 
+        // case with different node children
         rootNode1.left.insertLeft(5);
         rootNode1.left.right.insertRight(9);
         Assertions.assertFalse(BinaryTree.compareTrees(binaryTree.root, binaryTree1.root));

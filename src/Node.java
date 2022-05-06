@@ -3,7 +3,7 @@ public class Node {
     int data;
 
     /**
-     * Node constructor with two fields as a pair of its children - left and right and integer data.
+     * Node constructor with two fields as a pair of its children - left and right and its integer data.
      * @param data
      */
     public Node(int data){
