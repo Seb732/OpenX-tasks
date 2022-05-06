@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class BinaryTree {
@@ -23,38 +24,24 @@ public class BinaryTree {
     }
 
     /**
-     * This method returns whole number of nodes
-     * @param current
-     * @return
-     */
-    public int getNodeNumber(Node current){
-        // base case - no more nodes
-        if (current == null){
-            return 0;
-        }
-        // add one for current node and traverse its left and right edge
-        return 1 + getNodeNumber(current.left) + getNodeNumber(current.right);
-    }
-
-    /**
      * Returns the number of nodes which doesn't have any children
-     * @param current - current node
+     * @param node - current node
      * @return - number of incomplete nodes
      */
-    public int getIncompleteNodes(Node current){
+    public int getIncompleteNodes(Node node){
 
         // base case - end of current traversal
-        if (current == null){
+        if (Objects.isNull(node)){
            return 0;
         }
 
         // count for node which doesn't have any children
-        if (current.left == null && current.right == null){
+        if (Objects.isNull(node.left) && Objects.isNull(node.right)){
            this.incompleteNodeNumber++;
         }
         // recursively traverse the left and right subtree
-        getIncompleteNodes(current.left);
-        getIncompleteNodes(current.right);
+        getIncompleteNodes(node.left);
+        getIncompleteNodes(node.right);
 
         return this.incompleteNodeNumber;
     }
@@ -62,27 +49,27 @@ public class BinaryTree {
     /**
      * Method which finds the path from root node to a leaf node. It recursively traverses the left and right subtrees.
      * In each recursion get the longer path from left and right node children. In result, we get the longest path.
-     * @param current - default parameter must be the root node
+     * @param node - default parameter must be the root node
      * @return - list of nodes integer data from the longest path
      */
-    public List<Integer> longestPath(Node current){
+    public List<Integer> longestPath(Node node){
 
         // if current node is null - return empty list
-        if (current == null){
+        if (Objects.isNull(node)){
             return new ArrayList<>();
         }
         // Recursively traverse the tree and create list for every node
-        List<Integer> left = longestPath(current.left);
-        List<Integer> right = longestPath(current.right);
+        List<Integer> left = longestPath(node.left);
+        List<Integer> right = longestPath(node.right);
 
         // Check for longest path in current recursion
         if (right.size() < left.size())
         {
-            left.add(current.data);
+            left.add(node.data);
         }
         else
         {
-            right.add(current.data);
+            right.add(node.data);
         }
 
         // return the longer path from left and right subtrees
@@ -107,13 +94,13 @@ public class BinaryTree {
     public static boolean compareTrees(Node first, Node second){
 
         // Check for the leaf node
-        if (first == null && second == null){
+        if (Objects.isNull(first) && Objects.isNull(second)){
             return true;
         }
 
-        if (first != null && second != null){
+        if (!Objects.isNull(first) && !Objects.isNull(second)){
             // Check if nodes have the same value
-            if (first.data == second.data){
+            if (Objects.equals(first.data, second.data)){
                 // recursively compare children nodes for each node in trees
                 return compareTrees(first.left, second.left) && compareTrees(first.right, second.right);
             }
@@ -127,7 +114,7 @@ public class BinaryTree {
      *
      */
     public void print(String prefix, Node node) {
-        if (node != null) {
+        if (!Objects.isNull(node)) {
             // Insert a new level of depth as multi-space
             print(prefix + "     ", node.right);
             System.out.println (prefix + ("|-- ") + node.data);
