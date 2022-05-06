@@ -120,7 +120,6 @@ public class BinaryTree {
         }
         return false;
     }
-
     /**
      * Method which prints recursively tree in horizontal way
      * @param prefix

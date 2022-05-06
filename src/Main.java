@@ -1,5 +1,7 @@
 public class Main {
     public static void main(String[] args) {
+
+
         BinaryTree binaryTree = new BinaryTree(5);
         Node rootNode = binaryTree.root;
         rootNode.insertRight(7);
@@ -13,11 +15,13 @@ public class Main {
         rootNode.left.insertRight(5);
 
         // Task 1 - point 1 ----------------------------------------------------------------
-        //System.out.println(binaryTree.getIncompleteNodes(rootNode));
+        System.out.println("Number of nodes that do not have any children: " + binaryTree.getIncompleteNodes(rootNode));
         //----------------------------------------------------------------------------------
 
         // Task 1 - point 2 ----------------------------------------------------------------
-        //System.out.println(binaryTree.getLongestPath());
+        System.out.println("Largest number of edges in path from root node a leaf node: " + (binaryTree.longestPath(rootNode).size() - 1));
+        System.out.println("Path: " + binaryTree.getLongestPath());
+        //System.out.println();
         //----------------------------------------------------------------------------------
 
         // Task 1 - point 3 ----------------------------------------------------------------
@@ -35,6 +39,8 @@ public class Main {
         //System.out.println(BinaryTree.compareTrees(binaryTree.root, binaryTree2.root));
         //----------------------------------------------------------------------------------
 
+        // tree
+        System.out.println("Tree overview: ");
         binaryTree.print("", binaryTree.root);
     }
 }
