@@ -14,6 +14,7 @@ class BinaryTreeTest {
 
     @BeforeEach
     public void setUpTree(){
+        // Sample tree creation
         binaryTree = new BinaryTree(5);
         Node rootNode = binaryTree.root;
         rootNode.insertRight(7);
@@ -63,15 +64,23 @@ class BinaryTreeTest {
         rootNode1.left.insertLeft(2);
         rootNode1.left.insertRight(5);
 
+        // case when both trees are equal
         Assertions.assertTrue(BinaryTree.compareTrees(binaryTree.root, binaryTree1.root));
 
+        // case with change in value of node in second tree
         rootNode1.left.insertRight(19);
         Assertions.assertFalse(BinaryTree.compareTrees(binaryTree.root, binaryTree1.root));
 
+        // case with empty trees
         BinaryTree binaryTree2 = new BinaryTree();
         BinaryTree binaryTree3 = new BinaryTree();
 
         Assertions.assertTrue(BinaryTree.compareTrees(binaryTree2.root, binaryTree3.root));
+
+        // case with different node children 
+        rootNode1.left.insertLeft(5);
+        rootNode1.left.right.insertRight(9);
+        Assertions.assertFalse(BinaryTree.compareTrees(binaryTree.root, binaryTree1.root));
 
     }
 }
